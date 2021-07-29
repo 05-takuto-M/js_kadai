@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/sample.css">
+  <title>ジャン拳</title>
+</head>
+
+<body>
+  <header>
+    <h1>ジャン拳</h1>
+  </header>
+
+  <main>
+    <!-- <div>
+      <canvas id="canvas" width="900" height="400"></canvas>
+    </div> -->
+
+    <div class="imagesize"><img src="bg1.png" alt="武道場"></div>
+    <div class="position0"><img src="battle.gif" alt="悟空対悟空"></div>
+
+    <ul>
+      <li id="gu_btn">グー</li>
+      <li id="cho_btn">チョキ</li>
+      <li id="par_btn">パー</li>
+    </ul>
+
+    <div>コンピュータの出した手は？</div>
+    <div id="com_hand">グー？、チョキ？、パー？</div>
+    <div>結果は？</div>
+    <div id="result">勝負の行方は？！</div>
+  </main>
+
+  <footer>フッター</footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script>
+
+
+    // //visualの描写
+    // const canvas = document.querySelector("canvas");
+    // const ctx = canvas.getContext("2d");
+    // const background = new Image();//背景
+    // const battle = new Image();//悟空
+
+    // background.src = "bg1.png";
+    // battle.src = "battle.gif";
+
+
+    // //画像をCanvasのサイズに合わせて等倍して画像をcanvasに貼り付ける.
+    // const canvas_width = 900;
+    // const canvas_hegiht = 400;
+    // background.onload = function () {
+    //   ctx.drawImage(background, 0, 0, canvas_width, canvas_hegiht);
+    //   ctx.drawImage(battle, 400, 250);
+    // }
+    // // 描写終了
+
+
+    // グー出した時の関数
+    function gu() {
+      const randomNumber = Math.ceil(Math.random() * 3);
+      if (randomNumber === 1) {
+        $('#result').text('勝ち');
+        $('#com_hand').text('チョキ');
+      } else if (randomNumber === 2) {
+        $('#result').text('あいこ');
+        $('#com_hand').text('グー');
+      } else if (randomNumber === 3) {
+        $('#result').text('負け');
+        $('#com_hand').text('パー');
+      }
+    }
+
+    // チョキ出した時の関数
+    function cho() {
+      const randomNumber = Math.ceil(Math.random() * 3);
+      if (randomNumber === 1) {
+        $('#result').text('あいこ');
+        $('#com_hand').text('チョキ');
+      } else if (randomNumber === 2) {
+        $('#result').text('負け');
+        $('#com_hand').text('グー');
+      } else if (randomNumber === 3) {
+        $('#result').text('勝ち');
+        $('#com_hand').text('パー');
+      }
+    }
+
+    // パー出した時の関数
+    function par() {
+      const randomNumber = Math.ceil(Math.random() * 3);
+
+      if (randomNumber === 1) {
+        $('#result').text('負け');
+        $('#com_hand').text('チョキ');
+      } else if (randomNumber === 2) {
+        $('#result').text('勝ち');
+        $('#com_hand').text('グー');
+      } else if (randomNumber === 3) {
+        $('#result').text('あいこ');
+        $('#com_hand').text('パー');
+      }
+    }
+
+
+    // グーの時の勝敗クリックイベント
+
+    $('#gu_btn').on('click', function () {
+      setTimeout(gu, 3000)
+    });
+
+    // チョキの時の勝敗クリックイベント
+
+    $('#cho_btn').on('click', function () {
+      setTimeout(cho, 3000)
+    });
+
+
+    // パーの時の勝敗クリックイベント
+
+    $('#par_btn').on('click', function () {
+      setTimeout(par, 3000)
+    });
+
+
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>
